@@ -141,16 +141,55 @@ export class TimeTracker implements vscode.Disposable {
       {}
     );
 
-    panel.webview.html = this.getWebviewContent(reportContent);
+    panel.webview.html = this.getWebviewContentDailyReport(reportContent);
   }
 
-  private getWebviewContent(content: string) {
+  private getWebviewContentDailyReport(content: string) {
     return `<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Daily Time Tracking Report</title>
+        </head>
+        <body>
+            <pre>${content}</pre>
+        </body>
+        </html>`;
+  }
+
+  showAllEntries() {
+    let reportContent = "All Time Tracking Entries\n\n";
+    let totalTime = 0;
+
+    this.timeEntries.forEach((entry) => {
+      const date = new Date(entry.date).toLocaleDateString();
+      const duration = entry.duration / 3600000; // Convert ms to hours
+      totalTime += duration;
+      reportContent += `${date} - ${duration.toFixed(2)} hours: ${
+        entry.description
+      }\n`;
+    });
+
+    reportContent += `\nTotal time tracked: ${totalTime.toFixed(2)} hours`;
+
+    const panel = vscode.window.createWebviewPanel(
+      "timeTrackerAllEntries",
+      "All Time Tracking Entries",
+      vscode.ViewColumn.One,
+      {}
+    );
+
+    panel.webview.html = this.getWebviewContentAllEntreis(reportContent);
+  }
+
+  private getWebviewContentAllEntreis(content: string) {
+    return `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Time Tracking Entries</title>
         </head>
         <body>
             <pre>${content}</pre>

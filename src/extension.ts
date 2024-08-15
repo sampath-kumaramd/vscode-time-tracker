@@ -18,7 +18,6 @@ export function activate(context: vscode.ExtensionContext) {
     "time-tracker.stop",
     () => {
       timeTracker.stop();
-      vscode.window.showInformationMessage("Time tracking stopped");
     }
   );
 
@@ -36,12 +35,20 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  let allEntriesDisposable = vscode.commands.registerCommand(
+    "time-tracker.allEntries",
+    () => {
+      timeTracker.showAllEntries();
+    }
+  );
+
   context.subscriptions.push(
     timeTracker,
     startDisposable,
     stopDisposable,
     manualEntryDisposable,
-    dailyReportDisposable
+    dailyReportDisposable,
+    allEntriesDisposable
   );
 }
 
