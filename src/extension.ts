@@ -29,11 +29,19 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  let dailyReportDisposable = vscode.commands.registerCommand(
+    "time-tracker.dailyReport",
+    () => {
+      timeTracker.showDailyReport();
+    }
+  );
+
   context.subscriptions.push(
     timeTracker,
     startDisposable,
     stopDisposable,
-    manualEntryDisposable
+    manualEntryDisposable,
+    dailyReportDisposable
   );
 }
 

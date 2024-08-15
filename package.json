@@ -19,7 +19,7 @@
         "command": "time-tracker.helloWorld",
         "title": "Hello World"
       },
-      {
+ {
       "command": "time-tracker.start",
       "title": "Start Time Tracking"
     },
@@ -30,6 +30,10 @@
     {
       "command": "time-tracker.manualEntry",
       "title": "Add Manual Time Entry"
+    },
+    {
+      "command": "time-tracker.dailyReport",
+      "title": "Show Daily Time Tracking Report"
     }
     ]
   },

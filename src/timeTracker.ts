@@ -109,6 +109,47 @@ export class TimeTracker implements vscode.Disposable {
       .padStart(2, "0")}:${(seconds % 60).toString().padStart(2, "0")}`;
   }
 
+  async showDailyReport() {
+    const today = new Date().toDateString();
+    const todayEntries = this.timeEntries.filter(
+      (entry) => new Date(entry.date).toDateString() === today
+    );
+
+    let totalTime = 0;
+    let reportContent = "Daily Time Tracking Report\n\n";
+
+    todayEntries.forEach((entry) => {
+      const duration = entry.duration / 3600000; // Convert ms to hours
+      totalTime += duration;
+      reportContent += `- ${duration.toFixed(2)} hours: ${entry.description}\n`;
+    });
+
+    reportContent += `\nTotal time: ${totalTime.toFixed(2)} hours`;
+
+    const panel = vscode.window.createWebviewPanel(
+      "timeTrackerReport",
+      "Daily Time Tracking Report",
+      vscode.ViewColumn.One,
+      {}
+    );
+
+    panel.webview.html = this.getWebviewContent(reportContent);
+  }
+
+  private getWebviewContent(content: string) {
+    return `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Daily Time Tracking Report</title>
+        </head>
+        <body>
+            <pre>${content}</pre>
+        </body>
+        </html>`;
+  }
+
   dispose() {
     this.stop();
     this.statusBarItem.dispose();
