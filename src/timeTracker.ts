@@ -32,15 +32,23 @@ export class TimeTracker implements vscode.Disposable {
     }
   }
 
-  stop() {
+  async stop() {
     if (this.startTime !== null && this.timerId !== null) {
       clearInterval(this.timerId);
       this.elapsedTime = Date.now() - this.startTime;
-      this.saveTimeEntry("Automatic tracking");
+
+      const description = await vscode.window.showInputBox({
+        prompt: "Enter a description for this work session (optional)",
+        placeHolder: "e.g., Working on feature X",
+      });
+
+      this.saveTimeEntry(description || "Automatic tracking");
       this.startTime = null;
       this.timerId = null;
       this.elapsedTime = 0;
       this.updateStatusBar();
+
+      vscode.window.showInformationMessage("Time tracking stopped");
     }
   }
 
