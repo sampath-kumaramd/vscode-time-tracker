@@ -1,71 +1,74 @@
-# time-tracker README
+# VS Code Time Tracker
 
-This is the README for your extension "time-tracker". After writing up a brief description, we recommend including the following sections.
+VS Code Time Tracker is a simple, yet powerful extension that helps you keep track of the time you spend on your projects directly within Visual Studio Code.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension offers the following features:
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Open Visual Studio Code
+2. Press `Ctrl+P` (or `Cmd+P` on macOS) to open the Quick Open dialog
+3. Type `ext install vscode-time-tracker` to find the extension
+4. Click the `Install` button, then the `Enable` button
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Usage
+
+### Starting/Stopping the Timer
+
+- Click the "Start Timer" button in the status bar to start tracking time
+- Click the "Stop Timer" button in the status bar to stop tracking time
+- When stopping the timer, you'll be prompted to enter an optional description for the work session
+
+### Manual Time Entry
+
+1. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS)
+2. Type "Add Manual Time Entry" and select it
+3. Enter the number of hours worked and a description when prompted
+
+### Viewing Reports
+
+- For the daily report:
+
+  1. Open the Command Palette
+  2. Type "Show Daily Time Tracking Report" and select it
+
+- For all time entries:
+  1. Open the Command Palette
+  2. Type "Show All Time Tracking Entries" and select it
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+This extension doesn't have any special requirements or dependencies.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+This extension doesn't add any VS Code settings at the moment.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+There are no known issues at this time. If you encounter any problems, please file an issue on our [GitHub repository](https://github.com/sampath-kumaramd/vscode-time-tracker).
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.1.0
 
-### 1.0.0
+Initial release of VS Code Time Tracker:
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+- Start/stop timer functionality
+- Manual time entry
+- Daily report
+- All entries view
+- Status bar integration
 
 ---
 
-## Following extension guidelines
+## Feedback and Contributions
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+- File bugs, feature requests in [GitHub Issues](https://github.com/sampath-kumaramd/vscode-time-tracker/issues)
+- Leave a review on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=sampath-kumaramd.vscode-time-tracker)
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+## License
 
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This project is licensed under the MIT License.

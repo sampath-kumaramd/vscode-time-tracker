@@ -1,63 +1,56 @@
 {
-  "name": "time-tracker",
-  "displayName": "time-tracker",
-  "description": "Time Tracker is a powerful yet simple VS Code extension designed to help developers, freelancers, and remote workers effortlessly monitor their coding time.",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.92.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onStartupFinished"
-  ],
-  "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "time-tracker.helloWorld",
-        "title": "Hello World"
-      },
-  {
-      "command": "time-tracker.start",
-      "title": "Start Time Tracking"
-    },
-    {
-      "command": "time-tracker.stop",
-      "title": "Stop Time Tracking"
-    },
-    {
-      "command": "time-tracker.manualEntry",
-      "title": "Add Manual Time Entry"
-    },
-    {
-      "command": "time-tracker.dailyReport",
-      "title": "Show Daily Time Tracking Report"
-    },
-    {
-      "command": "time-tracker.allEntries",
-      "title": "Show All Time Tracking Entries"
-    }
-    ]
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "vscode-test"
-  },
-  "devDependencies": {
-    "@types/mocha": "^10.0.7",
-    "@types/node": "^20.14.15",
-    "@types/vscode": "^1.92.0",
-    "@typescript-eslint/eslint-plugin": "^7.14.1",
-    "@typescript-eslint/parser": "^7.11.0",
-    "@vscode/test-cli": "^0.0.9",
-    "@vscode/test-electron": "^2.4.0",
-    "eslint": "^8.57.0",
-    "typescript": "^5.4.5"
-  }
-}
+     "name": "vscode-time-tracker",
+     "displayName": "VS Code Time Tracker",
+     "description": "A simple time tracking extension for VS Code",
+     "version": "0.1.0",
+     "publisher": "YourPublisherName",
+      "license": "MIT",
+     "engines": {
+       "vscode": "^1.60.0"
+     },
+     "categories": [
+       "Other"
+     ],
+     "activationEvents": [
+       "onStartupFinished"
+     ],
+     "main": "./out/extension.js",
+     "contributes": {
+       "commands": [
+         {
+           "command": "time-tracker.start",
+           "title": "Start Time Tracking"
+         },
+         {
+           "command": "time-tracker.stop",
+           "title": "Stop Time Tracking"
+         },
+         {
+           "command": "time-tracker.manualEntry",
+           "title": "Add Manual Time Entry"
+         },
+         {
+           "command": "time-tracker.dailyReport",
+           "title": "Show Daily Time Tracking Report"
+         },
+         {
+           "command": "time-tracker.allEntries",
+           "title": "Show All Time Tracking Entries"
+         }
+       ]
+     },
+     "scripts": {
+       "vscode:prepublish": "npm run compile",
+       "compile": "tsc -p ./",
+       "lint": "eslint src --ext ts",
+       "watch": "tsc -watch -p ./"
+     },
+     "devDependencies": {
+       "@types/vscode": "^1.60.0",
+       "@types/node": "^14.14.37",
+       "@typescript-eslint/eslint-plugin": "^4.14.1",
+       "@typescript-eslint/parser": "^4.14.1",
+       "eslint": "^7.19.0",
+       "typescript": "^4.1.3"
+     }
+   }
