@@ -70,5 +70,4 @@ Initial release of VS Code Time Tracker:
 - Leave a review on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=sampath-kumaramd.vscode-time-tracker)
 
 ## License
-
 This project is licensed under the MIT License.
